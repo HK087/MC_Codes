@@ -1,0 +1,65 @@
+Stepper 
+
+
+
+
+Clockwise
+
+#include<reg51.h>
+void Delay(unsigned int a)
+{
+	unsigned int i,j;
+	for (i=0;i<=a;i++)
+	{
+		for(j=0;j<1275;j++);
+	}
+}
+void main(void)
+{
+	while(1)
+	{
+		P1=0X06;
+		Delay(250);
+		P1=0X0c;
+		Delay(250);
+		P1=0X09;
+		Delay(250);
+		P1=0X03;
+		Delay(250);
+	}
+}
+
+
+
+------------------------------------------------------------------------------
+
+
+s
+
+Anticlockwise
+
+
+#include<reg51.h>
+void Delay(unsigned int a)
+{
+	unsigned int i,j;
+	for (i=0;i<=a;i++)
+	{
+		for(j=0;j<1275;j++);
+	}
+}
+void main(void)
+{
+	while(1)
+	{
+		P1=0X03;
+		Delay(250);
+		P1=0X09;
+		Delay(250);
+		P1=0X0C;
+		Delay(250);
+		P1=0X06;
+		Delay(250);
+	}
+}
+
