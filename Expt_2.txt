@@ -1,0 +1,92 @@
+Toggle all LED
+
+#include<reg51.h>
+void Delay(unsigned int itime)
+{	
+	unsigned int i,j;
+	for(i=0;i<itime;i++);
+	{
+		for(j=0;j<1275;j++);
+	}
+}
+void main(void)
+{
+	unsigned int z;
+	for(z=0;z<=255;z++)
+	{
+		P1=z;
+		Delay(1000);
+	}
+}
+
+-----------------------------
+
+LED HEX 
+
+#include<reg51.h>
+void Delay(unsigned int itime)
+{	
+	unsigned int i,j;
+	for(i=0;i<itime;i++);
+	{
+		for(j=0;j<1275;j++);
+	}
+}
+void main(void)
+{
+	unsigned int z;
+	for(z=0;z<=0xFF;z++)
+	{
+		P1=z;
+		Delay(40000);
+	}
+}
+
+
+
+---------------------------------------------------
+
+LED BCD 
+#include<reg51.h>
+void Delay(unsigned int itime)
+{	
+	unsigned int i,j;
+	for(i=0;i<itime;i++)
+	{
+		for(j=0;j<1275;j++);
+	}
+}
+void main(void)
+{
+	int s,z;
+	for(s=0;s<=9;s++)
+	{
+		for(z=0;z<=9;z++);
+	}
+	P1=(s<<4)|z;
+	Delay(20000);
+}
+-----------------------------------------------------------
+
+
+LED ASCII
+
+#include<reg51.h>
+void Delay(unsigned int itime)
+{	
+	unsigned int i,j;
+	for(i=0;i<itime;i++)
+	{
+		for(j=0;j<1275;j++);
+	}
+}
+void main(void)
+{
+	int z;
+	for(z='A';z<+'Z';z++)
+	{
+	P1=z;
+	Delay(20000);
+	}
+}
+

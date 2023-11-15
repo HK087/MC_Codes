@@ -1,0 +1,32 @@
+PWM 
+
+
+
+#include <p18f4550.h>
+#include “vector_relocate.h”
+void myMsDelay (unsigned int time);
+void main( )
+{ TRISCbits.TRISC2 = 0 ; 
+TRISD=0; 
+PR2 = 0XBA; 
+CCP1CON = 0x0C; 
+T2CON = 0x07; 
+PORTDbits.RD5 = 1 ;
+PORTDbits.RD6 = 0 ;
+While (1)
+{  // For 20% Duty cycle
+CCPR1L = 0x25; CCP1CONbits.DC1B0=0; CCP1CONbits.DC1B1=1; myMsDelay(3000); 
+//For 40% Duty cycle
+CCPR1L = 0X4B; CCP1CONbits.DC1B0=0; CCP1CONbits.DC1B1=0; myMsDelay(3000); 
+// For 60% Duty cycle
+CCPR1L = 0X74; CCP1CONbits.DC1B0=0; CCP1CONbits.DC1B1=1; myMsDelay(3000); 
+// For 80% Duty cycle
+CCPR1L = 0x96; CCP1CONbits.DC1B0=0; CCP1CONbits.DC1B1=0; myMsDelay(3000);
+  }   } 
+void myMSDelay(unsigned int time)
+ { 
+unsigned int i, j;
+ for (i = 0; i < time; i++)
+ for (j = 0; j <665; j++); 
+}
+
